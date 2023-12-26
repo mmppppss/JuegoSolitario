@@ -7,8 +7,8 @@ package juegosolitario;
 public class JuegoSolitario {
 
     public static void main(String[] args) {
-        Solitario a = new Solitario();
-        a.mostrarBaraja();
+        JFJuego solitario = new JFJuego();
+        solitario.setVisible(true);
     }
     
 }
