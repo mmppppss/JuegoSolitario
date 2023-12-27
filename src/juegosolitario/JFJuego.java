@@ -17,7 +17,7 @@ public class JFJuego extends javax.swing.JFrame {
      */
     public JFJuego() {
         initComponents();
-        this.setBackground(Color.yellow);
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -47,8 +47,7 @@ public class JFJuego extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Jueguito de meli");
-        setAutoRequestFocus(false);
-        setBackground(new java.awt.Color(0, 153, 0));
+        setBackground(new java.awt.Color(0, 102, 0));
         setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         setResizable(false);
 
@@ -109,9 +108,14 @@ public class JFJuego extends javax.swing.JFrame {
         jTextField11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jTextField11.setForeground(new java.awt.Color(204, 0, 0));
         jTextField11.setText(" 4 ♥");
+        jTextField11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField11ActionPerformed(evt);
+            }
+        });
 
         jTextField12.setEditable(false);
-        jTextField12.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jTextField12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jTextField12.setForeground(new java.awt.Color(204, 0, 0));
         jTextField12.setText(" ♥");
         jTextField12.addActionListener(new java.awt.event.ActionListener() {
@@ -121,17 +125,17 @@ public class JFJuego extends javax.swing.JFrame {
         });
 
         jTextField13.setEditable(false);
-        jTextField13.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jTextField13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jTextField13.setForeground(new java.awt.Color(204, 0, 0));
-        jTextField13.setText("♦");
+        jTextField13.setText(" ♦");
 
         jTextField14.setEditable(false);
-        jTextField14.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jTextField14.setText("♣");
+        jTextField14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jTextField14.setText(" ♣");
 
         jTextField15.setEditable(false);
-        jTextField15.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jTextField15.setText("♠");
+        jTextField15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jTextField15.setText(" ♠");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -186,7 +190,7 @@ public class JFJuego extends javax.swing.JFrame {
                     .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -217,6 +221,10 @@ public class JFJuego extends javax.swing.JFrame {
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField6ActionPerformed
+
+    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField11ActionPerformed
 
     /**
      * @param args the command line arguments
