@@ -10,7 +10,6 @@ import java.util.logging.Logger;
 public class Nodo implements Cloneable{
     String Simbolo;
     int numero;
-    String color;
     Nodo link;
     static final Nodo TIERRA = null;
     public Nodo() {
@@ -18,14 +17,9 @@ public class Nodo implements Cloneable{
     }
     public Nodo(String simbolo, int numero, String color, Nodo link){
         this.Simbolo=simbolo;
-        this.color=color;
         this.numero=numero;
         this.link=link;
     }
-    public void setColor(String color) {
-        this.color = color;
-    }
-
     public void setSimbolo(String Simbolo) {
         this.Simbolo = Simbolo;
     }
@@ -37,11 +31,6 @@ public class Nodo implements Cloneable{
     public void setLink(Nodo link) {
         this.link = link;
     }
-
-    public String getColor() {
-        return color;
-    }
-
     public int getNumero() {
         return numero;
     }
