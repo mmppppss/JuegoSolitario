@@ -71,7 +71,6 @@ public class Solitario {
             if(!cartas[ind].vacia()){
                 Nodo carta=cartas[ind].pop();
                 b.push(carta.getSimbolo(), carta.getNumero(), carta.getColor());
-                System.out.println("agregada");
             }
         }
         return b;

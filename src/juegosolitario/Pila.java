@@ -1,5 +1,8 @@
 package juegosolitario;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author meli
@@ -15,6 +18,10 @@ public class Pila {
         Cabeza=aux;
     }
     public Nodo pop(){
+        if(Cabeza==Nodo.TIERRA){
+            System.err.print("pila vacia");
+            return Cabeza;
+        }
         Nodo aux=Cabeza.clone();
         Cabeza=Cabeza.link; 
         return aux;
@@ -24,6 +31,15 @@ public class Pila {
     }
     public boolean vacia(){
         return Cabeza==Nodo.TIERRA;
+    }
+    public int cant(){
+        Nodo aux=Cabeza;
+        int cont=0;
+        while(aux!=Nodo.TIERRA){
+            aux=aux.getLink();
+            cont++;
+        }
+        return cont;
     }
     
 }
