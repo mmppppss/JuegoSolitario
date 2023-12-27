@@ -305,11 +305,41 @@ public class JFJuego extends javax.swing.JFrame {
     }//GEN-LAST:event_nCol2ActionPerformed
 
     private void columna1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_columna1MouseClicked
-        
+        if(lastCol==1){
+            juego.n1.push(lastClick);
+            lastCol=0;
+            lastClick=new Nodo("X", 0, "XXX", Nodo.TIERRA);
+        }else{
+            if(lastClick.Simbolo!="X"){
+                juego.n1.push(lastClick);
+                lastClick=new Nodo("X", 0, "XXX", Nodo.TIERRA);
+                lastCol=0;
+            }else{
+                lastClick=juego.n1.pop();
+                lastCol=1;
+            }
+       }
+        System.out.println(lastClick.numero);
+        mostrar();
     }//GEN-LAST:event_columna1MouseClicked
 
     private void columna2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_columna2MouseClicked
-      
+      if(lastCol==2){
+            juego.n2.push(lastClick);
+            lastCol=0;
+            lastClick=new Nodo("X", 0, "XXX", Nodo.TIERRA);
+        }else{
+            if(lastClick.Simbolo!="X"){
+                juego.n2.push(lastClick);
+                lastClick=new Nodo("X", 0, "XXX", Nodo.TIERRA);
+                lastCol=0;
+            }else{
+                lastClick=juego.n2.pop();
+                lastCol=2;
+            }
+       }
+        System.out.println(lastClick.numero);
+        mostrar();
     }//GEN-LAST:event_columna2MouseClicked
 
     private void columna3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_columna3MouseClicked
@@ -352,7 +382,22 @@ public class JFJuego extends javax.swing.JFrame {
     }//GEN-LAST:event_columna4MouseClicked
 
     private void columna5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_columna5MouseClicked
-        
+        if(lastCol==5){
+            juego.n5.push(lastClick);
+            lastCol=0;
+            lastClick=new Nodo("X", 0, "XXX", Nodo.TIERRA);
+        }else{
+            if(lastClick.Simbolo!="X"){
+                juego.n5.push(lastClick);
+                lastClick=new Nodo("X", 0, "XXX", Nodo.TIERRA);
+                lastCol=0;
+            }else{
+                lastClick=juego.n5.pop();
+                lastCol=5;
+            }
+       }
+        System.out.println(lastClick.numero);
+        mostrar();
     }//GEN-LAST:event_columna5MouseClicked
 
     /**
