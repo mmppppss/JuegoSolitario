@@ -14,7 +14,7 @@ public class Solitario {
     Pila n3=new Pila();
     Pila n4=new Pila();
     Pila n5=new Pila();
-
+    Pila columnas[]={n1, n2, n3, n4,  n5};
     Pila cartasCorazon=new Pila();
     Pila cartasEspadas=new Pila();    
     Pila cartasTrebol=new Pila();
@@ -26,18 +26,19 @@ public class Solitario {
         int[] cartasDiamantesNums=mesclar();
         int[] cartasTrebolNums=mesclar();
         for (int i : cartasCorazonNums) {
-            cartasCorazon.push("<3", i, "Rojo");
+            cartasCorazon.push("♥", i, "Rojo");
         }
         for (int i : cartasEspadasNums) {
-            cartasEspadas.push("+", i, "Rojo");
+            cartasEspadas.push("♠", i, "Rojo");
         }
         for (int i : cartasDiamantesNums) {
-            cartasDiamantes.push("*", i, "Negro");
+            cartasDiamantes.push("♦", i, "Negro");
         }
         for (int i : cartasTrebolNums) {
-            cartasTrebol.push("%", i, "Negro");
+            cartasTrebol.push("♣", i, "Negro");
         }
         baraja=BarajaMesclada();
+        cargarPilas();
     }
     public void mostrarBaraja(){
         while(!baraja.vacia()){
@@ -67,12 +68,24 @@ public class Solitario {
         Pila cartas[]={ cartasCorazon, cartasDiamantes,cartasEspadas,cartasTrebol};
         while(!cartas[0].vacia() || !cartas[1].vacia() || !cartas[2].vacia() || !cartas[3].vacia()){
             int ind=(int) (Math.random() * 4);
-            System.out.println(ind);
             if(!cartas[ind].vacia()){
                 Nodo carta=cartas[ind].pop();
                 b.push(carta.getSimbolo(), carta.getNumero(), carta.getColor());
             }
         }
         return b;
+    }
+    public void cargarPilas(){
+        for(int i=0; i <5; i++){
+            for(int j=0; j<=i ; j++){
+                columnas[i].push(baraja.pop());
+            }
+        }
+    }
+    public Nodo sacarPila(int n){
+        return columnas[n-1].pop();
+    }
+    public void meterPila(int n, Nodo carta){
+        columnas[n-1].push(carta);
     }
 }

@@ -15,9 +15,33 @@ public class JFJuego extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
-    public JFJuego() {
+    Solitario juego;
+    Nodo lastClick=new Nodo("X", 0, "XXX", Nodo.TIERRA);
+    int lastCol=0;
+    public JFJuego(Solitario juego) {
+        this.juego=juego;
         initComponents();
         setLocationRelativeTo(null);
+        mostrar();
+    }
+    public void mostrar(){
+        lastClickLAbel.setText(lastClick.getNumero()+" "+lastClick.getSimbolo());
+        Pila act=juego.n1;
+        nCol1.setText("+"+act.cant()+" Cartas");
+        columna1.setText(act.Cabeza.getNumero()+" "+act.Cabeza.getSimbolo());
+        act=juego.n2;
+        nCol2.setText("+"+act.cant()+" Cartas");
+        columna2.setText(act.Cabeza.getNumero()+" "+act.Cabeza.getSimbolo());
+        act=juego.n3;
+        nCol3.setText("+"+act.cant()+" Cartas");
+        columna3.setText(act.Cabeza.getNumero()+" "+act.Cabeza.getSimbolo());
+        act=juego.n4;
+        nCol4.setText("+"+act.cant()+" Cartas");
+        columna4.setText(act.Cabeza.getNumero()+" "+act.Cabeza.getSimbolo());
+        act=juego.n5;
+        nCol5.setText("+"+act.cant()+" Cartas");
+        columna5.setText(act.Cabeza.getNumero()+" "+act.Cabeza.getSimbolo());
+        PilaBaraja.setText(juego.baraja.Cabeza.getNumero()+" "+juego.baraja.Cabeza.getSimbolo());
     }
 
     /**
@@ -29,88 +53,119 @@ public class JFJuego extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
+        columna1 = new javax.swing.JTextField();
+        columna2 = new javax.swing.JTextField();
+        columna3 = new javax.swing.JTextField();
+        columna4 = new javax.swing.JTextField();
+        columna5 = new javax.swing.JTextField();
+        nCol1 = new javax.swing.JTextField();
+        nCol2 = new javax.swing.JTextField();
+        nCol3 = new javax.swing.JTextField();
+        nCol4 = new javax.swing.JTextField();
+        nCol5 = new javax.swing.JTextField();
+        PilaBaraja = new javax.swing.JTextField();
         jTextField12 = new javax.swing.JTextField();
         jTextField13 = new javax.swing.JTextField();
         jTextField14 = new javax.swing.JTextField();
         jTextField15 = new javax.swing.JTextField();
+        lastClickLAbel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Jueguito de meli");
         setBackground(new java.awt.Color(0, 102, 0));
-        setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);
 
-        jTextField1.setEditable(false);
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(204, 0, 0));
-        jTextField1.setText("    K ♦");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        columna1.setEditable(false);
+        columna1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        columna1.setForeground(new java.awt.Color(204, 0, 0));
+        columna1.setText("    K ♦");
+        columna1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                columna1MouseClicked(evt);
+            }
+        });
+        columna1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                columna1ActionPerformed(evt);
             }
         });
 
-        jTextField2.setEditable(false);
-        jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(204, 0, 0));
-        jTextField2.setText("    3 ♥");
-
-        jTextField3.setEditable(false);
-        jTextField3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField3.setText("     6♠");
-
-        jTextField4.setEditable(false);
-        jTextField4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField4.setText("     8 ♣");
-
-        jTextField5.setEditable(false);
-        jTextField5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField5.setForeground(new java.awt.Color(204, 0, 0));
-        jTextField5.setText("    1 ♦");
-
-        jTextField6.setEditable(false);
-        jTextField6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField6.setText("+0 Cartas");
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+        columna2.setEditable(false);
+        columna2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        columna2.setForeground(new java.awt.Color(204, 0, 0));
+        columna2.setText("    3 ♥");
+        columna2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                columna2MouseClicked(evt);
             }
         });
 
-        jTextField7.setEditable(false);
-        jTextField7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField7.setText("+1 Cartas");
+        columna3.setEditable(false);
+        columna3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        columna3.setText("     6♠");
+        columna3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                columna3MouseClicked(evt);
+            }
+        });
 
-        jTextField8.setEditable(false);
-        jTextField8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField8.setText("+2 Cartas");
+        columna4.setEditable(false);
+        columna4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        columna4.setText("     8 ♣");
+        columna4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                columna4MouseClicked(evt);
+            }
+        });
 
-        jTextField9.setEditable(false);
-        jTextField9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField9.setText("+3 Cartas");
+        columna5.setEditable(false);
+        columna5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        columna5.setForeground(new java.awt.Color(204, 0, 0));
+        columna5.setText("    1 ♦");
+        columna5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                columna5MouseClicked(evt);
+            }
+        });
 
-        jTextField10.setEditable(false);
-        jTextField10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jTextField10.setText("+4 Cartas");
-
-        jTextField11.setEditable(false);
-        jTextField11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jTextField11.setForeground(new java.awt.Color(204, 0, 0));
-        jTextField11.setText(" 4 ♥");
-        jTextField11.addActionListener(new java.awt.event.ActionListener() {
+        nCol1.setEditable(false);
+        nCol1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        nCol1.setText("+0 Cartas");
+        nCol1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField11ActionPerformed(evt);
+                nCol1ActionPerformed(evt);
+            }
+        });
+
+        nCol2.setEditable(false);
+        nCol2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        nCol2.setText("+1 Cartas");
+        nCol2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nCol2ActionPerformed(evt);
+            }
+        });
+
+        nCol3.setEditable(false);
+        nCol3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        nCol3.setText("+2 Cartas");
+
+        nCol4.setEditable(false);
+        nCol4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        nCol4.setText("+3 Cartas");
+
+        nCol5.setEditable(false);
+        nCol5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        nCol5.setText("+4 Cartas");
+
+        PilaBaraja.setEditable(false);
+        PilaBaraja.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        PilaBaraja.setForeground(new java.awt.Color(204, 0, 0));
+        PilaBaraja.setText(" 4 ♥");
+        PilaBaraja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PilaBarajaActionPerformed(evt);
             }
         });
 
@@ -136,6 +191,13 @@ public class JFJuego extends javax.swing.JFrame {
         jTextField15.setEditable(false);
         jTextField15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jTextField15.setText(" ♠");
+        jTextField15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField15ActionPerformed(evt);
+            }
+        });
+
+        lastClickLAbel.setText("LastClick");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -154,30 +216,36 @@ public class JFJuego extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(46, 46, 46))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(columna1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(columna2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(110, 110, 110)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField8)
-                                    .addComponent(jTextField3))
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(columna4, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(nCol1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(PilaBaraja, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(46, 46, 46))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(nCol2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lastClickLAbel)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(nCol3)
+                                                    .addComponent(columna3))
+                                                .addGap(18, 18, 18)
+                                                .addComponent(nCol4, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                         .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField10)
-                            .addComponent(jTextField5))))
+                            .addComponent(nCol5)
+                            .addComponent(columna5))))
                 .addContainerGap(11, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -185,46 +253,107 @@ public class JFJuego extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PilaBaraja, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
+                .addGap(43, 43, 43)
+                .addComponent(lastClickLAbel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nCol1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nCol2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nCol3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nCol4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nCol5, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(columna1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(columna2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(columna3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(columna4, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(columna5, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    private void columna1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_columna1ActionPerformed
+       
+    }//GEN-LAST:event_columna1ActionPerformed
 
     private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField12ActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void nCol1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nCol1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_nCol1ActionPerformed
 
-    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
+    private void PilaBarajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PilaBarajaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField11ActionPerformed
+    }//GEN-LAST:event_PilaBarajaActionPerformed
+
+    private void jTextField15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField15ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField15ActionPerformed
+
+    private void nCol2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nCol2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nCol2ActionPerformed
+
+    private void columna1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_columna1MouseClicked
+        
+    }//GEN-LAST:event_columna1MouseClicked
+
+    private void columna2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_columna2MouseClicked
+      
+    }//GEN-LAST:event_columna2MouseClicked
+
+    private void columna3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_columna3MouseClicked
+       if(lastCol==3){
+           juego.n3.push(lastClick);
+           lastCol=0;
+           lastClick=new Nodo("X", 0, "XXX", Nodo.TIERRA);
+       }else{
+          if(lastClick.Simbolo!="X"){
+                juego.n3.push(lastClick);
+                lastClick=new Nodo("X", 0, "XXX", Nodo.TIERRA);
+                lastCol=0;
+            }else{
+                lastClick=juego.n3.pop();
+                lastCol=3;
+            }
+           
+       }
+        System.out.println(lastClick.numero);
+        mostrar();
+    }//GEN-LAST:event_columna3MouseClicked
+
+    private void columna4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_columna4MouseClicked
+        if(lastCol==4){
+            juego.n4.push(lastClick);
+            lastCol=0;
+            lastClick=new Nodo("X", 0, "XXX", Nodo.TIERRA);
+        }else{
+            if(lastClick.Simbolo!="X"){
+                juego.n4.push(lastClick);
+                lastClick=new Nodo("X", 0, "XXX", Nodo.TIERRA);
+                lastCol=0;
+            }else{
+                lastClick=juego.n4.pop();
+                lastCol=4;
+            }
+       }
+        System.out.println(lastClick.numero);
+        mostrar();
+    }//GEN-LAST:event_columna4MouseClicked
+
+    private void columna5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_columna5MouseClicked
+        
+    }//GEN-LAST:event_columna5MouseClicked
 
     /**
      * @param args the command line arguments
@@ -257,26 +386,27 @@ public class JFJuego extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFJuego().setVisible(true);
+                //new JFJuego(juego).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
+    private javax.swing.JTextField PilaBaraja;
+    private javax.swing.JTextField columna1;
+    private javax.swing.JTextField columna2;
+    private javax.swing.JTextField columna3;
+    private javax.swing.JTextField columna4;
+    private javax.swing.JTextField columna5;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JLabel lastClickLAbel;
+    private javax.swing.JTextField nCol1;
+    private javax.swing.JTextField nCol2;
+    private javax.swing.JTextField nCol3;
+    private javax.swing.JTextField nCol4;
+    private javax.swing.JTextField nCol5;
     // End of variables declaration//GEN-END:variables
 }

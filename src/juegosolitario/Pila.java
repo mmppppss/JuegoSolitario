@@ -17,6 +17,10 @@ public class Pila {
         Nodo aux=new Nodo(Simbolo, numero, color, Cabeza);
         Cabeza=aux;
     }
+    public void push(Nodo aux){
+        aux.setLink(Cabeza);
+        Cabeza = aux;
+    }
     public Nodo pop(){
         if(Cabeza==Nodo.TIERRA){
             System.err.print("pila vacia");
@@ -30,16 +34,27 @@ public class Pila {
         return Cabeza.clone();
     }
     public boolean vacia(){
-        return Cabeza==Nodo.TIERRA;
+        return Cabeza.link==Nodo.TIERRA;
     }
     public int cant(){
         Nodo aux=Cabeza;
-        int cont=0;
+        int cont=-1;
         while(aux!=Nodo.TIERRA){
             aux=aux.getLink();
             cont++;
         }
         return cont;
+    }
+    public void mostrar(){
+        Nodo aux=Cabeza;
+        int cont=0; 
+        String cad="P->";
+        while(aux!=Nodo.TIERRA){
+            cad=cad.concat("["+aux.Simbolo+" "+aux.numero+" "+aux.color+"]->");
+            aux=aux.getLink();
+            cont++;
+        }
+        System.out.println(cad);
     }
     
 }
