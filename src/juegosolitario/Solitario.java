@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package juegosolitario;
 
 import javax.naming.ldap.Rdn;
@@ -67,33 +63,17 @@ public class Solitario {
         return cartas;
     }
     public Pila BarajaMesclada(){
-        Pila baraja=new Pila();
-        for(int i = 0; i<48; i++){
-            int simbolo=(int) (Math.random() * 4 + 1);
-            Nodo carta=Nodo.TIERRA;
-            if(simbolo==1){
-                if(cartasCorazon.vacia())
-                    simbolo=2;
-                carta = cartasCorazon.pop();
+        Pila b=new Pila();
+        Pila cartas[]={ cartasCorazon, cartasDiamantes,cartasEspadas,cartasTrebol};
+        while(!cartas[0].vacia() || !cartas[1].vacia() || !cartas[2].vacia() || !cartas[3].vacia()){
+            int ind=(int) (Math.random() * 4);
+            System.out.println(ind);
+            if(!cartas[ind].vacia()){
+                Nodo carta=cartas[ind].pop();
+                b.push(carta.getSimbolo(), carta.getNumero(), carta.getColor());
+                System.out.println("agregada");
             }
-            if(simbolo==2){
-                if(cartasEspadas.vacia())
-                    simbolo=3;
-                carta = cartasEspadas.pop();
-            }
-            if(simbolo==3){
-                if(cartasDiamantes.vacia())
-                    simbolo=4;
-                carta = cartasDiamantes.pop();
-            }
-            if(simbolo==4){
-                if(cartasTrebol.vacia())
-                    simbolo=1;
-                carta = cartasTrebol.pop();
-            }
-            baraja.push(carta.getSimbolo(), carta.getNumero(), carta.getColor());
-            i++;
         }
-        return baraja;
+        return b;
     }
 }
