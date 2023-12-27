@@ -43,7 +43,7 @@ public class Solitario {
     public void mostrarBaraja(){
         while(!baraja.vacia()){
             Nodo aux= baraja.pop();
-            System.out.println(aux.Simbolo+" "+ aux.numero +" "+aux.getColor());
+            System.out.println(aux.Simbolo+" "+ aux.numero /*+" "+aux.getColor()*/);
         }
     }
     public int[] mesclar(){
@@ -70,7 +70,7 @@ public class Solitario {
             int ind=(int) (Math.random() * 4);
             if(!cartas[ind].vacia()){
                 Nodo carta=cartas[ind].pop();
-                b.push(carta.getSimbolo(), carta.getNumero(), carta.getColor());
+                b.push(carta.getSimbolo(), carta.getNumero()/*, carta.getColor()*/);
             }
         }
         return b;
