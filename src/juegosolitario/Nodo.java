@@ -15,7 +15,7 @@ public class Nodo implements Cloneable{
     public Nodo() {
         this.link=TIERRA;
     }
-    public Nodo(String simbolo, int numero, String color, Nodo link){
+    public Nodo(String simbolo, int numero, Nodo link){
         this.Simbolo=simbolo;
         this.numero=numero;
         this.link=link;

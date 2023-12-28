@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 /**
  *
  * @author meli
+ * 
  */
 public class Pila {
     Nodo Cabeza;
@@ -13,8 +14,8 @@ public class Pila {
     public Pila() {
         Cabeza=Nodo.TIERRA;
     }
-    public void push(String Simbolo, int numero, String color){
-        Nodo aux=new Nodo(Simbolo, numero, color, Cabeza);
+    public void push(String Simbolo, int numero){
+        Nodo aux=new Nodo(Simbolo, numero, Cabeza);
         Cabeza=aux;
     }
     public void push(Nodo aux){
@@ -30,6 +31,7 @@ public class Pila {
         Cabeza=Cabeza.link; 
         return aux;
     }
+    //return el nultimp elemento sin eliminarlo
     public Nodo showCabeza(){
         return Cabeza.clone();
     }
@@ -47,14 +49,11 @@ public class Pila {
     }
     public void mostrar(){
         Nodo aux=Cabeza;
-        int cont=0; 
         String cad="P->";
         while(aux!=Nodo.TIERRA){
-            cad=cad.concat("["+aux.Simbolo+" "+aux.numero+" "+aux.color+"]->");
+            cad=cad.concat("["+aux.Simbolo+" "+aux.numero);
             aux=aux.getLink();
-            cont++;
         }
         System.out.println(cad);
     }
-    
 }
